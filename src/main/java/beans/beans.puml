@@ -1,44 +1,34 @@
 @startuml
 
-class DefaultListableBeanFactory {
-}
+class DefaultListableBeanFactory<<综合上面所有功能，主要是对bean注册后的处理>> {}
 
-abstract class AbstractAutowireCapableBeanFactory {
-}
+abstract class AbstractAutowireCapableBeanFactory<<综合AbastractBeanFactory并对接口AutowireCapableBeanFactory进行实现>> {}
 
-interface ConfigurableListableBeanFactory {
+interface ConfigurableListableBeanFactory<<BeanFactory配置清单，指定忽略类型及接口等>> {}
 
-}
+interface BeanDefinitionRegistry<<定义对BeanDefinition的各种增删改操作>> {}
 
-interface BeanDefinitionRegistry {
+abstract class AbstractBeanFactory<<综合FactoryBeanRegistrySupport和ConfigurableBeanFactory的功能>> {}
 
-}
+abstract class FactoryBeanRegistrySupport<<在DefaultSingletonBeanRegistry基础上增加了对FactoryBean的特殊功能处理>> {}
 
-abstract class AbstractBeanFactory {}
+class DefaultSingletonBeanRegistry<<对接口SingletonBeanRegistry各函数的实现>> {}
 
-abstract class FactoryBeanRegistrySupport {}
+class SimpleAliasRegistry<<主要使用map作为alias缓存，对接口AliasRegistry进行实现>> {}
 
-class DefaultSingletonBeanRegistry {}
+interface AliasRegistry<<定义对alias的简单增删改查>> {}
 
-class SimpleAliasRegistry {}
+interface ConfigurableBeanFactory<<提供配置Factory的各种方法>> {}
 
-interface AliasRegistry {}
+interface HierarchicalBeanFactory<<继承BeanFactory，在BeanFactory基础上增加了parentFactory的支持>> {}
 
-interface SingletonBeanRegistry {}
+interface BeanFactory<<定义获取bean及bean的各种属性>> {}
 
-interface ConfigurableBeanFactory {}
+interface AutowireCapableBeanFactory<<提供创建bean、自动注入、初始化及应用bean的后处理器>> {}
 
-interface HierarchicalBeanFactory {}
+interface ListableBeanFactory<<根据各种条件获取bean的配置清单>> {}
 
-interface BeanFactory {}
-
-interface AutowireCapableBeanFactory {}
-
-interface ListableBeanFactory {}
-
-interface  AutowireCapableBeanFactory {}
-
-interface SingletonBeanRegistry {}
+interface SingletonBeanRegistry<<定义对单例的注册及获取>> {}
 
 ConfigurableListableBeanFactory <|.. DefaultListableBeanFactory
 AbstractAutowireCapableBeanFactory <|-- DefaultListableBeanFactory
