@@ -1,0 +1,71 @@
+@startuml
+
+class DefaultListableBeanFactory {
+}
+
+abstract class AbstractAutowireCapableBeanFactory {
+}
+
+interface ConfigurableListableBeanFactory {
+
+}
+
+interface BeanDefinitionRegistry {
+
+}
+
+abstract class AbstractBeanFactory {}
+
+abstract class FactoryBeanRegistrySupport {}
+
+class DefaultSingletonBeanRegistry {}
+
+class SimpleAliasRegistry {}
+
+interface AliasRegistry {}
+
+interface SingletonBeanRegistry {}
+
+interface ConfigurableBeanFactory {}
+
+interface HierarchicalBeanFactory {}
+
+interface BeanFactory {}
+
+interface AutowireCapableBeanFactory {}
+
+interface ListableBeanFactory {}
+
+interface  AutowireCapableBeanFactory {}
+
+interface SingletonBeanRegistry {}
+
+ConfigurableListableBeanFactory <|.. DefaultListableBeanFactory
+AbstractAutowireCapableBeanFactory <|-- DefaultListableBeanFactory
+BeanDefinitionRegistry <|.. DefaultListableBeanFactory
+AbstractBeanFactory <|-- AbstractAutowireCapableBeanFactory
+
+AutowireCapableBeanFactory <|.. AbstractAutowireCapableBeanFactory
+FactoryBeanRegistrySupport  <|-- AbstractBeanFactory
+ConfigurableBeanFactory  <|.. AbstractBeanFactory
+DefaultSingletonBeanRegistry  <|-- FactoryBeanRegistrySupport
+SimpleAliasRegistry  <|-- DefaultSingletonBeanRegistry
+AliasRegistry  <|.. SimpleAliasRegistry
+
+SingletonBeanRegistry  <|.. DefaultSingletonBeanRegistry
+
+HierarchicalBeanFactory  <|-- ConfigurableBeanFactory
+BeanFactory <|-- HierarchicalBeanFactory
+
+BeanFactory <|-- AutowireCapableBeanFactory
+
+ListableBeanFactory <|-- ConfigurableListableBeanFactory
+BeanFactory <|-- ListableBeanFactory
+AutowireCapableBeanFactory <|-- ConfigurableListableBeanFactory
+
+ConfigurableBeanFactory <|-- ConfigurableListableBeanFactory
+
+SingletonBeanRegistry <|-- ConfigurableBeanFactory
+
+AliasRegistry <|-- BeanDefinitionRegistry
+@enduml
