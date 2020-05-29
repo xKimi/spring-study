@@ -7,6 +7,13 @@
     <groupId>com.kimi</groupId>
     <artifactId>spring-study</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.6.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
