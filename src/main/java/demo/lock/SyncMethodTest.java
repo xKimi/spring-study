@@ -1,4 +1,4 @@
-package java.lock;
+package demo.lock;
 
 /**
  * Copyright (c) 2020 Kimi. All Rights Reserved

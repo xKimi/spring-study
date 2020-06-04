@@ -1,4 +1,4 @@
-package java.lock;
+package demo.lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -46,7 +46,7 @@ class Job implements Runnable {
 }
 
 class PrintQueue {
-    private final Lock queueLock = new ReentrantLock(false);
+    private final Lock queueLock = new ReentrantLock(true);
 
     public void printJob(Object document) {
         queueLock.lock();
